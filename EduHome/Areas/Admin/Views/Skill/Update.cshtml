@@ -1,0 +1,27 @@
+﻿@model EduHome.Models.Skill
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+    <form class="user" method="post" enctype="multipart/form-data">
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextAreaFor(m => m.Name, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Percent)
+            @Html.TextAreaFor(m => m.Percent, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Percent, null, new { @class = "text-danger" })
+        </div>
+
+
+        <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+        <button class="btn btn-primary btn-user btn-block">Update</button>
+    </form>
+

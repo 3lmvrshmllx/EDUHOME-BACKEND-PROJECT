@@ -1,0 +1,48 @@
+﻿@model EduHome.Models.Blog
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+    <form class="user" method="post" enctype="multipart/form-data">
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ImageFile)
+            @Html.TextBoxFor(m => m.ImageFile, new { @class = "form-control form-control-user", @type = "file" })
+            @Html.ValidationMessageFor(m => m.ImageFile, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Title)
+            @Html.TextAreaFor(m => m.Title, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Title, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Content)
+            @Html.TextAreaFor(m => m.Content, new { @class = "form-control form-control-user", @id = "cktext" })
+            @Html.ValidationMessageFor(m => m.Content, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" name="BlogCategoryId">
+                <option value="value">Choose</option>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+
+        </div>
+
+        <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+        <button class="btn btn-primary btn-user btn-block">Create</button>
+    </form>
+
+@section CKEditor{
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+}

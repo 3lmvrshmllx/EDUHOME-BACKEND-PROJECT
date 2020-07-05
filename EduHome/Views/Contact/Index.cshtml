@@ -1,0 +1,62 @@
+﻿@model EduHome.ViewModels.ViewModelEduhome
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center" style="background-image:url(../../Uploads/img/@Model.BgImage.Image)">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>contact</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="map-area">
+
+    <div class="google-map-area">
+
+        <div id="contacts" class="map-area">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1oKQpI0Mv6Y5MzkZD-GYiC4Tv0oA" width="100%" height="440"></iframe>
+        </div>
+    </div>
+</div>
+
+
+<div class="contact-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5 col-xs-12">
+                <div class="contact-contents text-center">
+                    @foreach (var item in Model.ContactAdresses)
+                    {
+                        <div class="single-contact mb-65">
+                            <div class="contact-icon">
+                                <img src="~/Uploads/img/@item.Image" alt="contact">
+                            </div>
+                            <div class="contact-add">
+                                <h3>address</h3>
+                                <p>@item.Country</p>
+                                <p>@item.Street</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            @{
+                Html.RenderPartial("_Contact");
+            }
+
+        </div>
+    </div>
+</div>
+
+
+

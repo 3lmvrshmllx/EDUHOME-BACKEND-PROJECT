@@ -1,0 +1,27 @@
+﻿@model EduHome.Models.SocialLink
+    @{
+        ViewBag.Title = "Update";
+        Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    }
+
+    <form class="user" method="post">
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Icon)
+            @Html.TextAreaFor(m => m.Icon, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Icon, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Link)
+            @Html.TextAreaFor(m => m.Link, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Link, null, new { @class = "text-danger" })
+        </div>
+
+
+        <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+        <button class="btn btn-primary btn-user btn-block">Update</button>
+    </form>
+

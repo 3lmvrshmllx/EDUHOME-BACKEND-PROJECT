@@ -1,0 +1,116 @@
+﻿@model EduHome.Models.Course
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+    <form class="user" method="post" enctype="multipart/form-data">
+
+
+        <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" name="CourseCategoryId">
+                <option value="value">Choose</option>
+                @foreach (var item in ViewBag.Categories)
+                {
+                    <option value="@item.Id" @(Model.CourseCategoryId == item.Id ? "selected" : "")>@item.Name</option>
+                }
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ImageFile)
+            @Html.TextBoxFor(m => m.ImageFile, new { @class = "form-control form-control-user", @type = "file" })
+            @Html.ValidationMessageFor(m => m.ImageFile, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Title)
+            @Html.TextAreaFor(m => m.Title, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Title, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Content)
+            @Html.TextAreaFor(m => m.Content, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Content, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.AboutCourse)
+            @Html.TextAreaFor(m => m.AboutCourse, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.AboutCourse, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.HowToApply)
+            @Html.TextAreaFor(m => m.HowToApply, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.HowToApply, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Certification)
+            @Html.TextAreaFor(m => m.Certification, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Certification, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Starts)
+            @Html.TextAreaFor(m => m.Starts, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Starts, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Duration)
+            @Html.TextAreaFor(m => m.Duration, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Duration, null, new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ClassDuration)
+            @Html.TextAreaFor(m => m.ClassDuration, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.ClassDuration, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.SkillLevel)
+            @Html.TextAreaFor(m => m.SkillLevel, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.SkillLevel, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Language)
+            @Html.TextAreaFor(m => m.Language, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Language, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.StudentsCount)
+            @Html.TextAreaFor(m => m.StudentsCount, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.StudentsCount, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Assessments)
+            @Html.TextAreaFor(m => m.Assessments, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Assessments, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.CourseFee)
+            @Html.TextAreaFor(m => m.CourseFee, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.CourseFee, null, new { @class = "text-danger" })
+        </div>
+
+
+
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="Image" value="@Model.Image" />
+        <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+        <button class="btn btn-primary btn-user btn-block">Update</button>
+    </form>
+
+

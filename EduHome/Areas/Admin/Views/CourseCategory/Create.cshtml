@@ -1,0 +1,21 @@
+﻿@model EduHome.Models.CourseCategory
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<form class="user" method="post">
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextAreaFor(m => m.Name, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
+    </div>
+
+
+    <button class="btn btn-primary btn-user btn-block">Create</button>
+</form>
+

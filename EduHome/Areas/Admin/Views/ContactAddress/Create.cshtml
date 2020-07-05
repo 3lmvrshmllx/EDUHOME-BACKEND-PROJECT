@@ -1,0 +1,32 @@
+﻿@model EduHome.Models.ContactAdress
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<form class="user" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ImageFile)
+        @Html.TextBoxFor(m => m.ImageFile, new { @class = "form-control form-control-user", @type = "file" })
+        @Html.ValidationMessageFor(m => m.ImageFile, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Country)
+        @Html.TextAreaFor(m => m.Country, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Country, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Street)
+        @Html.TextAreaFor(m => m.Street, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Street, null, new { @class = "text-danger" })
+    </div>
+
+    <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+    <button class="btn btn-primary btn-user btn-block">Create</button>
+</form>
+
+

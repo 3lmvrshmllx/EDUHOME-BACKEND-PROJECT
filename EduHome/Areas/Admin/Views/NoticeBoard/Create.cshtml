@@ -1,0 +1,26 @@
+﻿@model EduHome.Models.NoticeBoard
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<form class="user" method="post" enctype="multipart/form-data">
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Time)
+        @Html.TextAreaFor(m => m.Time, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Time, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Content)
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Content, null, new { @class = "text-danger" })
+    </div>
+
+    <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+    <button class="btn btn-primary btn-user btn-block">Create</button>
+</form>

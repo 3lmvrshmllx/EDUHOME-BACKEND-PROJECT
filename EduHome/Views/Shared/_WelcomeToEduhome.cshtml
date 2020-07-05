@@ -1,0 +1,20 @@
+﻿@model EduHome.ViewModels.ViewModelEduhome
+<div class="about-area pt-145 pb-155">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="about-content">
+                    <h2>@Model.About.Title.Substring(0, 10) <span>@Model.About.Title.Substring(10, 8)</span></h2>
+                    <p>@Model.About.Content.Substring(0, 222)</p>
+                    <p class="hidden-sm">@Model.About.Content.Substring(221, 151)</p>
+                    <a class="default-btn" href="@Url.Action("Index","Courses")">view courses</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="about-img">
+                    <img src="~/Uploads/img/@Model.About.Image" alt="about">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

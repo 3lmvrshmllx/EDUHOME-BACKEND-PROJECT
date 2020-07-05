@@ -1,0 +1,72 @@
+﻿@model EduHome.Models.Event
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<form class="user" method="post" enctype="multipart/form-data">
+
+
+    <div class="form-group">
+        <label>Category</label>
+        <select class="form-control" name="EventCategoryId">
+            <option value="value">Choose</option>
+            @foreach (var item in ViewBag.Categories)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+
+    
+    <div class="form-group">
+        <label>Speaker</label>
+        <select class="form-control" name="SpeakerId">
+            <option value="value">Choose</option>
+            @foreach (var item in ViewBag.Speakers)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ImageFile)
+        @Html.TextBoxFor(m => m.ImageFile, new { @class = "form-control form-control-user", @type = "file" })
+        @Html.ValidationMessageFor(m => m.ImageFile, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title)
+        @Html.TextAreaFor(m => m.Title, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Title, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Content)
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Content, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Time)
+        @Html.TextAreaFor(m => m.Time, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Time, null, new { @class = "text-danger" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Venue)
+        @Html.TextAreaFor(m => m.Venue, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Venue, null, new { @class = "text-danger" })
+    </div>
+
+
+    <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+    <button class="btn btn-primary btn-user btn-block">Create</button>
+</form>
+
+
+

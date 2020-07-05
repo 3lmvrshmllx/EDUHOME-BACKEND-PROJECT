@@ -1,0 +1,32 @@
+﻿@model EduHome.Models.Speaker
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<form class="user" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ImageFile)
+        @Html.TextBoxFor(m => m.ImageFile, new { @class = "form-control form-control-user", @type = "file" })
+        @Html.ValidationMessageFor(m => m.ImageFile, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextAreaFor(m => m.Name, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Profession)
+        @Html.TextAreaFor(m => m.Profession, new { @class = "form-control form-control-user" })
+        @Html.ValidationMessageFor(m => m.Profession, null, new { @class = "text-danger" })
+    </div>
+
+    <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+    <button class="btn btn-primary btn-user btn-block">Create</button>
+</form>
+
+

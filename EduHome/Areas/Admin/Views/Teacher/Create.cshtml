@@ -1,0 +1,92 @@
+﻿@model EduHome.Models.Teacher
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+    <form class="user" method="post" enctype="multipart/form-data">
+
+
+        <div class="form-group">
+            <label>Professions</label>
+            <select class="form-control" name="TeacherProfessionId">
+                <option value="value">Choose</option>
+                @foreach (var item in ViewBag.Professions)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ImageFile)
+            @Html.TextBoxFor(m => m.ImageFile, new { @class = "form-control form-control-user", @type = "file" })
+            @Html.ValidationMessageFor(m => m.ImageFile, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name)
+            @Html.TextAreaFor(m => m.Name, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.AboutTeacher)
+            @Html.TextAreaFor(m => m.AboutTeacher, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.AboutTeacher, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Degree)
+            @Html.TextAreaFor(m => m.Degree, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Degree, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Experience)
+            @Html.TextAreaFor(m => m.Experience, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Experience, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Hobbies)
+            @Html.TextAreaFor(m => m.Hobbies, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Hobbies, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Faculty)
+            @Html.TextAreaFor(m => m.Faculty, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Faculty, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextAreaFor(m => m.Email, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PhoneNumber)
+            @Html.TextAreaFor(m => m.PhoneNumber, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.PhoneNumber, null, new { @class = "text-danger" })
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Skype)
+            @Html.TextAreaFor(m => m.Skype, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Skype, null, new { @class = "text-danger" })
+        </div>
+
+
+        <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+        <button class="btn btn-primary btn-user btn-block">Create</button>
+    </form>
+
+
+
+

@@ -1,0 +1,40 @@
+﻿@model EduHome.ViewModels.ViewModelEduhome
+
+<div class="single-blog-widget mb-50">
+    <div class="single-blog-banner">
+        <a href="" id="blog"><img src="~/Public/img/blog/blog-img.jpg" alt="blog"></a>
+        <h2>best<br> education<br> theme</h2>
+    </div>
+</div>
+
+
+<div class="single-blog-widget mb-50">
+    <h3>latest post</h3>
+    @foreach (var item in Model.Blogs)
+    {
+        <div class="single-post mb-30">
+            <div class="single-post-img">
+                <a href="">
+                    <img src="~/Uploads/img/@item.Image" alt="post" style="width:100px;height:100px">
+                    <div class="blog-hover">
+                        <i class="fa fa-link"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="single-post-content">
+                <h4><a href="@Url.Action("BlogDetails","Blog",new {id=item.Id })">@item.Title</a></h4>
+                <p>By @item.Admin.Name  /  @item.CreatedDate.ToLongDateString()</p>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="single-blog-widget">
+    <h3>tags</h3>
+    <div class="single-tag">
+        @foreach (var item in Model.Tags)
+        {
+            <a href="@Url.Action("Index","Courses")" class="mr-10 mb-10">@item.Name</a>
+        }
+    </div>
+</div>

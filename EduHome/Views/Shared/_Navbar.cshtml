@@ -1,0 +1,54 @@
+﻿@model EduHome.ViewModels.ViewModelEduhome
+@using EduHome.Models
+@{
+    User user = (User)Session["Loginner"];
+}
+
+
+
+@if (Session["LoginnerId"] != null)
+{
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="header-top-left">
+                        <p>HAVE ANY QUESTION ? @Model.Setting.NavbarPhone </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="header-top-right text-right">
+                        <ul>
+                            <li><a style="color:white">@user.Username</a></li>
+                            <li><a style="color:#EC1C23" href="@Url.Action("Logout","Login")">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+else
+{
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="header-top-left">                    
+                        <p>HAVE ANY QUESTION ? @Model.Setting.NavbarPhone</p>                       
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="header-top-right text-right">
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Login")">login</a></li>
+                            <li><a href="@Url.Action("Index", "SignUp")">signup</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

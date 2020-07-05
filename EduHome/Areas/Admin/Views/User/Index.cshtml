@@ -1,0 +1,46 @@
+﻿@model List<EduHome.Models.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <h1 class="h3 mb-2 text-gray-800">Users</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-responsive" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Phone number</th>
+                            <th>Created Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int i = 0;}
+                        @foreach (var item in Model)
+                        {
+                            i++;
+                            <tr>
+                                <td>@i</td>
+                                <td>@item.Name</td>
+                                <td>@item.Surname</td>
+                                <td>@item.Username</td>
+                                <td>@item.Email </td>
+                                <td>@item.PhoneNumber </td>
+                                <td>@item.CreatedDate</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,74 @@
+﻿@model List<EduHome.Models.Teacher>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="container-fluid">
+        <h1 class="h3 mb-2 text-gray-800">Teacher</h1>
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="@Url.Action("Create", "Teacher")" class="btn btn-primary mb-4">Create</a>
+            </div>
+        </div>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-responsive" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Profession</th>
+                                <th>About Teacher</th>
+                                <th>Degree</th>
+                                <th>Experience</th>
+                                <th>Hobbies</th>
+                                <th>Faculty</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Skype</th>
+                                <th>Created Date</th>
+                                <th>Edits</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 0;}
+                            @foreach (var item in Model)
+                            {
+                                i++;
+                                <tr>
+                                    <td>@i</td>
+                                    <td>
+                                        <img src="~/Uploads/img/@item.Image" alt="Alternate Text" width="100" />
+                                    </td>
+                                    <td>@item.Name</td>
+                                    <td>@item.TeacherProfession.Name</td>
+                                    <td>@(item.AboutTeacher.Length > 50 ? item.AboutTeacher.Substring(0,50) + "..." : item.AboutTeacher)</td>
+                                    <td>@item.Degree </td>
+                                    <td>@item.Experience </td>
+                                    <td>@item.Hobbies</td>
+                                    <td>@item.Faculty</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.PhoneNumber</td>
+                                    <td>@item.Skype</td>
+                                    <td>@item.CreatedDate</td>
+                                    <td>
+                                        <a href="@Url.Action("Update", "Teacher", new { id=item.Id})">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
+
+                                        <a onclick="return confirm('Are you sure?')" href="@Url.Action("Delete", "Teacher", new { id=item.Id})">
+                                            <i class="fas fa-times"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>

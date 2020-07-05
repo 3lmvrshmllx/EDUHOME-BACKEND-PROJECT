@@ -1,0 +1,102 @@
+﻿@model EduHome.ViewModels.ViewModelEduhome
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center" style="background-image:url(../../Uploads/img/@Model.BgImage.Image)">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>blog / left side bar</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="blog-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="blog-sidebar left">
+                    <div class="single-blog-widget mb-50">
+                        <h3>search</h3>
+                        <div class="blog-search">
+                            <form id="search" action="#">
+                                <input type="search" placeholder="Search..." name="search" />
+                                <button type="submit">
+                                    <span><i class="fa fa-search"></i></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <h3>categories</h3>
+                        <ul>
+                            @foreach (var item in Model.BlogCategories)
+                            {
+                                <li><a href="@Url.Action("Index","Blog")">@item.Name (@item.Blogs.Count)</a></li>
+                            }
+                        </ul>
+                    </div>
+                    @{
+                        Html.RenderPartial("_BestEducation");
+                    }
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    @foreach (var item in Model.ViewModelBlog.Blogs)
+                    {
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="single-blog mb-60">
+                                <div class="blog-img">
+                                    <a href="@Url.Action("BlogDetails", "Blog", new { id = item.Id })"><img src="~/Uploads/img/@item.Image" alt="blog"></a>
+                                    <div class="blog-hover">
+                                        <i class="fa fa-link"></i>
+                                    </div>
+                                </div>
+                                <div class="blog-content">
+                                    <div class="blog-top">
+                                        <p>By @item.Admin.Name /  @item.CreatedDate.ToLongDateString()  /  <i class="fa fa-comments-o"></i> @(Model.BlogComments.Count() > 0 ? Model.BlogComments.Count() : 0)</p>
+                                    </div>
+                                    <div class="blog-bottom">
+                                        <h2><a href="@Url.Action("BlogDetails", "Blog", new { id = item.Id })">@item.Title</a></h2>
+                                        <a href="@Url.Action("BlogDetails", "Blog", new { id = item.Id })">read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="col-md-12">
+                        <div class="pagination">
+                            <ul>
+                                @for (int i = 1; i <= Model.ViewModelBlog.PageCount; i++)
+                                {
+                                    if (Model.ViewModelBlog.CurrentPage == i)
+                                    {
+                                        <li><a>@i</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("index","Blog",new { page = i })">@i</a></li>
+
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

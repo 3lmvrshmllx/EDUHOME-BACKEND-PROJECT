@@ -1,0 +1,67 @@
+﻿@model EduHome.Models.Setting
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+    <form class="user" method="post" enctype="multipart/form-data">
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.LogoFile)
+            @Html.TextBoxFor(m => m.LogoFile, new { @class = "form-control form-control-user", @type = "file" })
+            @Html.ValidationMessageFor(m => m.LogoFile, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.LogoMiniRedFile)
+            @Html.TextBoxFor(m => m.LogoMiniRedFile, new { @class = "form-control form-control-user", @type = "file" })
+            @Html.ValidationMessageFor(m => m.LogoMiniRedFile, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.LogoMiniWhiteFile)
+            @Html.TextBoxFor(m => m.LogoMiniWhiteFile, new { @class = "form-control form-control-user", @type = "file" })
+            @Html.ValidationMessageFor(m => m.LogoMiniWhiteFile, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Adress)
+            @Html.TextAreaFor(m => m.Adress, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Adress, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.PhoneNumber)
+            @Html.TextAreaFor(m => m.PhoneNumber, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.PhoneNumber, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.NavbarPhone)
+            @Html.TextAreaFor(m => m.NavbarPhone, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.NavbarPhone, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.SiteName)
+            @Html.TextAreaFor(m => m.SiteName, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.SiteName, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Copyright)
+            @Html.TextAreaFor(m => m.Copyright, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Copyright, null, new { @class = "text-danger" })
+        </div>
+
+
+        <input type="hidden" name="Logo" value="@Model.Logo" />
+        <input type="hidden" name="LogoMiniRed" value="@Model.LogoMiniRed" />
+        <input type="hidden" name="LogoMiniWhite" value="@Model.LogoMiniWhite" />
+        <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+        <button class="btn btn-primary btn-user btn-block">Update</button>
+    </form>
+
+

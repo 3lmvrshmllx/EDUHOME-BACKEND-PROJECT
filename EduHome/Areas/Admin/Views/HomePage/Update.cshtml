@@ -1,0 +1,34 @@
+﻿@model EduHome.Models.Home
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+    <form class="user" method="post" enctype="multipart/form-data">
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.ImageFile)
+            @Html.TextBoxFor(m => m.ImageFile, new { @class = "form-control form-control-user", @type = "file" })
+            @Html.ValidationMessageFor(m => m.ImageFile, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Title)
+            @Html.TextAreaFor(m => m.Title, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.Title, null, new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.SubTitle)
+            @Html.TextAreaFor(m => m.SubTitle, new { @class = "form-control form-control-user" })
+            @Html.ValidationMessageFor(m => m.SubTitle, null, new { @class = "text-danger" })
+        </div>
+
+
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="Image" value="@Model.Image" />
+        <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+
+        <button class="btn btn-primary btn-user btn-block">Update</button>
+    </form>
+
